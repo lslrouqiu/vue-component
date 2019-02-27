@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>vue-component</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <h3>carousel:</h3>
+          <carousel active="2">
+            <carousel-item  v-for="item in items" :key="item"  >
+              <div :style="{background:item,height:'100%'}"></div>
+            </carousel-item>
+          </carousel>
+        </div>
+        <div>
+          <h3>move</h3>
+          <move >
+            <move-item v-for="item in items2" :key="item" :style="{background:item}"  width="400"></move-item>
+          </move>
+        </div>
+        <div>
+          <h3> tabs</h3>
+          <tabs initalIndex="2">
+            <tab v-for="item in items" :key="item" :name="item" :title="item" :style="{background:item}"  >{{item}}</tab>
+          </tabs>
+        </div>
+        <div>
+          <h3>modal</h3>
+          <button @click="showModal">show</button>
+        </div>
+        <div>
+          <h3>collapse</h3>
+          <collapse >
+            <collapse-item v-for="item in items" :key="item" :title="item">
+              <div slot="content" :style="{background:item,height:'200px'}">{{item}}</div>
+            </collapse-item>
+          </collapse>
+        </div>
+        <div>
+          <h3>tree</h3>
+          <tree :data="tree"></tree>
+        </div>
+        <div>
+          <h3>Page</h3>
+          <page :total="8" :handle-click="pageClick" :active="50"></page>
+        </div>
+        <div style="width:300px">
+          <h3>Scroll</h3>
+          <scroll :height="100">
+            <div  v-for="item in items" :style="{background:item,height:'100px'}"></div>
+          </scroll>
+        </div>
+        <div >
+          <h3>DatePicker</h3>
+          <date-picker >
+
+          </date-picker>
+        </div>
+
+   </div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
